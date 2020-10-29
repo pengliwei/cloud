@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 对统一异常进行处理
+ *
  * @author ：penglw
  * @date ：2020/6/9 17:34
  */
@@ -26,4 +28,5 @@ public class GlobalExceptionAdvice {
         response.setData(ex.getMessage());
         return response;
     }
+
 }
