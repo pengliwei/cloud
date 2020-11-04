@@ -23,7 +23,7 @@ public class AdUnitDistrictRequest {
     @AllArgsConstructor
     public static class UnitDistrict {
 
-        private String unitId;
+        private Long unitId;
         private String province;
         private String city;
     }

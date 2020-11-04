@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AdUnitResponse {
 
-    private String id;
+    private Long id;
     private String unitName;
 }

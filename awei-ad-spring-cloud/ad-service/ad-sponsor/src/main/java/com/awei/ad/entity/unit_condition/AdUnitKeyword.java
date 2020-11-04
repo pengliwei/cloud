@@ -26,19 +26,19 @@ import javax.persistence.Table;
 public class AdUnitKeyword {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Basic
     @Column(name = "unit_id", nullable = false)
-    private String unitId;
+    private Long unitId;
 
     @Basic
     @Column(name = "keyword", nullable = false)
     private String keyword;
 
-    public AdUnitKeyword(String unitId, String keyword) {
-        this.id = IDGenerator.newID();
+    public AdUnitKeyword(Long unitId, String keyword) {
         this.unitId = unitId;
         this.keyword = keyword;
     }

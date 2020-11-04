@@ -1,6 +1,5 @@
 package com.awei.ad.entity.unit_condition;
 
-import com.awei.ad.utils.IDGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,23 +25,23 @@ import javax.persistence.Table;
 public class AdUnitDistrict {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Basic
     @Column(name = "unit_id", nullable = false)
-    private String unitId;
+    private Long unitId;
 
     @Basic
     @Column(name = "province", nullable = false)
     private String province;
 
-    @Column(name = "city", nullable = false)
     @Basic
+    @Column(name = "city", nullable = false)
     private String city;
 
-    public AdUnitDistrict(String unitId, String province, String city) {
-        this.id = IDGenerator.newID();
+    public AdUnitDistrict(Long unitId, String province, String city) {
         this.unitId = unitId;
         this.province = province;
         this.city = city;

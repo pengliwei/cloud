@@ -10,9 +10,9 @@ import java.util.List;
  * @author: PENGLW
  * @date: 2020/10/28
  */
-public interface AdUnitRepository extends JpaRepository<AdUnit, String> {
+public interface AdUnitRepository extends JpaRepository<AdUnit, Long> {
 
-    AdUnit findByPlanIdAndUnitName(String planId, String unitName);
+    AdUnit findByPlanIdAndUnitName(Long planId, String unitName);
 
     List<AdUnit> findAllByUnitStatus(Integer unitStatus);
 }

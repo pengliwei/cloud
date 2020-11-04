@@ -1,16 +1,13 @@
 package com.awei.ad.entity;
 
 import com.awei.ad.constant.CommonStatus;
-import com.awei.ad.utils.IDGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @description: 用户实体
@@ -25,8 +22,9 @@ import javax.persistence.Table;
 public class AdUser {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Basic
     @Column(name = "username", nullable = false)
@@ -42,18 +40,18 @@ public class AdUser {
 
     @Basic
     @Column(name = "create_time", nullable = false)
-    private String createTime;
+    private Date createTime;
 
     @Basic
     @Column(name = "update_time", nullable = false)
-    private String updateTime;
+    private Date updateTime;
 
-    public AdUser(String username,String token){
+    public AdUser(String username, String token) {
+
         this.username = username;
         this.token = token;
-        this.id = IDGenerator.newID();
         this.userStatus = CommonStatus.VALID.getStatus();
-        this.createTime = String.valueOf(System.currentTimeMillis());
+        this.createTime = new Date();
         this.updateTime = this.createTime;
     }
 }

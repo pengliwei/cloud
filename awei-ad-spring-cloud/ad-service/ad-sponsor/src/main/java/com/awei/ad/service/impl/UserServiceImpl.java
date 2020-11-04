@@ -11,6 +11,8 @@ import com.awei.ad.exception.AdException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  * @description: 用户service实现层
  * @author: PENGLW
@@ -27,18 +29,24 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public CreateUserResponse createUser(CreateUserRequest request) throws AdException {
-        //1.判断参数是否为空
+    @Transactional
+    public CreateUserResponse createUser(CreateUserRequest request)
+            throws AdException {
+
         if (!request.validate()) {
             throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
-        //2.判断是否存在相同用户名的用户
-        AdUser oldUser = userRepository.findByUsername(request.getUsername());
+
+        AdUser oldUser = userRepository.
+                findByUsername(request.getUsername());
         if (oldUser != null) {
             throw new AdException(Constants.ErrorMsg.SAME_NAME_ERROR);
         }
-        //3.保存用户信息
-        AdUser newUser = userRepository.save(new AdUser(request.getUsername(), CommonUtils.md5(request.getUsername())));
+
+        AdUser newUser = userRepository.save(new AdUser(
+                request.getUsername(),
+                CommonUtils.md5(request.getUsername())
+        ));
 
         return new CreateUserResponse(
                 newUser.getId(), newUser.getUsername(), newUser.getToken(),

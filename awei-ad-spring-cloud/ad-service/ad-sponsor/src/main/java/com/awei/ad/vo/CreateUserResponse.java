@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * @description: 用户返回参数
  * @author: PENGLW
@@ -14,9 +16,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateUserResponse {
 
-    private String userId;
+    private Long userId;
     private String username;
     private String token;
-    private String createTime;
-    private String updateTime;
+    private Date createTime;
+    private Date updateTime;
 }

@@ -1,10 +1,8 @@
-package com.awei.ad.vo;
+package com.awei.ad.client.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -18,11 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AdPlanGetRequest {
 
-    private Long userId;
-    private List<Long> ids;
+    private String userId;
+    private List<String> ids;
 
-    public boolean validate() {
-
-        return userId != null && !CollectionUtils.isEmpty(ids);
-    }
 }

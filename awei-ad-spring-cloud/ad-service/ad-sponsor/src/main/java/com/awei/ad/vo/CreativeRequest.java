@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * @description: 创意请求参数
  * @author: PENGLW
@@ -24,7 +26,7 @@ public class CreativeRequest {
     private Integer width;
     private Long size;
     private Integer duration;
-    private String userId;
+    private Long userId;
     private String url;
 
     public Creative convertToEntity() {
@@ -40,7 +42,7 @@ public class CreativeRequest {
         creative.setAuditStatus(CommonStatus.VALID.getStatus());
         creative.setUserId(userId);
         creative.setUrl(url);
-        creative.setCreateTime(String.valueOf(System.currentTimeMillis()));
+        creative.setCreateTime(new Date());
         creative.setUpdateTime(creative.getCreateTime());
 
         return creative;

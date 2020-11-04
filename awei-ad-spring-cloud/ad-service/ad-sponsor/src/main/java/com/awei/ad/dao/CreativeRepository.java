@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author: PENGLW
  * @date: 2020/10/28
  */
-public interface CreativeRepository extends JpaRepository<Creative, String> {
+public interface CreativeRepository extends JpaRepository<Creative, Long> {
 }

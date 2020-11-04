@@ -15,7 +15,7 @@ import org.apache.commons.lang.StringUtils;
 @AllArgsConstructor
 public class AdUnitRequest {
 
-    private String planId;
+    private Long planId;
     private String unitName;
 
     private Integer positionType;

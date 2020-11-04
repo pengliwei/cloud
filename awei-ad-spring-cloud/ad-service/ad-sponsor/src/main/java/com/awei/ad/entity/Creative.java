@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @description: 创意实体
@@ -19,8 +20,9 @@ import javax.persistence.*;
 public class Creative {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Basic
     @Column(name = "name", nullable = false)
@@ -30,9 +32,7 @@ public class Creative {
     @Column(name = "type", nullable = false)
     private Integer type;
 
-    /**
-     * 物料的类型, 比如图片可以是 bmp, jpg等等
-     */
+    /** 物料的类型, 比如图片可以是 bmp, jpg等等 */
     @Basic
     @Column(name = "material_type", nullable = false)
     private Integer materialType;
@@ -45,30 +45,24 @@ public class Creative {
     @Column(name = "width", nullable = false)
     private Integer width;
 
-    /**
-     * 物料大小
-     */
+    /** 物料大小 */
     @Basic
     @Column(name = "size", nullable = false)
     private Long size;
 
-    /**
-     * 持续时长, 只有视频不为0
-     */
+    /** 持续时长, 只有视频不为0 */
     @Basic
     @Column(name = "duration", nullable = false)
     private Integer duration;
 
-    /**
-     * 审核状态
-     */
+    /** 审核状态 */
     @Basic
     @Column(name = "audit_status", nullable = false)
     private Integer auditStatus;
 
     @Basic
     @Column(name = "user_id", nullable = false)
-    private String userId;
+    private Long userId;
 
     @Basic
     @Column(name = "url", nullable = false)
@@ -76,11 +70,11 @@ public class Creative {
 
     @Basic
     @Column(name = "create_time", nullable = false)
-    private String createTime;
+    private Date createTime;
 
     @Basic
     @Column(name = "updateTime", nullable = false)
-    private String updateTime;
+    private Date updateTime;
 }
 
 

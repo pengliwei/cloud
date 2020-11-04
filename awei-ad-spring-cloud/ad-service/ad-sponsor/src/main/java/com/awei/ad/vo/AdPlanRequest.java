@@ -15,8 +15,8 @@ import org.apache.commons.lang.StringUtils;
 @AllArgsConstructor
 public class AdPlanRequest {
 
-    private String id;
-    private String userId;
+    private Long id;
+    private Long userId;
     private String planName;
     private String startDate;
     private String endDate;

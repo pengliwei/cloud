@@ -10,13 +10,13 @@ import java.util.List;
  * @author: PENGLW
  * @date: 2020/10/28
  */
-public interface AdPlanRepository extends JpaRepository<AdPlan, String> {
+public interface AdPlanRepository extends JpaRepository<AdPlan, Long> {
 
-    AdPlan findByIdAndUserId(String id, String userId);
+    AdPlan findByIdAndUserId(Long id, Long userId);
 
-    List<AdPlan> findAllByIdInAndUserId(List<String> ids, String userId);
+    List<AdPlan> findAllByIdInAndUserId(List<Long> ids, Long userId);
 
-    AdPlan findByUserIdAndPlanName(String userId, String planName);
+    AdPlan findByUserIdAndPlanName(Long userId, String planName);
 
     List<AdPlan> findAllByPlanStatus(Integer status);
 }

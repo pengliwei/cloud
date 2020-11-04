@@ -1,7 +1,6 @@
 package com.awei.ad.entity;
 
 import com.awei.ad.constant.CommonStatus;
-import com.awei.ad.utils.IDGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,12 +21,13 @@ import java.util.Date;
 public class AdPlan {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Basic
     @Column(name = "user_id", nullable = false)
-    private String userId;
+    private Long userId;
 
     @Basic
     @Column(name = "plan_name", nullable = false)
@@ -47,21 +47,21 @@ public class AdPlan {
 
     @Basic
     @Column(name = "create_time", nullable = false)
-    private String createTime;
+    private Date createTime;
 
     @Basic
     @Column(name = "update_time", nullable = false)
-    private String updateTime;
+    private Date updateTime;
 
-    public AdPlan(String userId, String planName,
+    public AdPlan(Long userId, String planName,
                   Date startDate, Date endDate) {
-        this.id = IDGenerator.newID();
+
         this.userId = userId;
         this.planName = planName;
         this.planStatus = CommonStatus.VALID.getStatus();
         this.startDate = startDate;
         this.endDate = endDate;
-        this.createTime = String.valueOf(System.currentTimeMillis());
+        this.createTime = new Date();
         this.updateTime = this.createTime;
     }
 }

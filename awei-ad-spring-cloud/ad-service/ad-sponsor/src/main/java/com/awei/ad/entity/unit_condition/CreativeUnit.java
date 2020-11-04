@@ -26,19 +26,19 @@ import javax.persistence.Table;
 public class CreativeUnit {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Long id;
 
     @Basic
     @Column(name = "creative_id", nullable = false)
-    private String creativeId;
+    private Long creativeId;
 
     @Basic
     @Column(name = "unit_id", nullable = false)
-    private String unitId;
+    private Long unitId;
 
-    public CreativeUnit(String creativeId, String unitId) {
-        this.id = IDGenerator.newID();
+    public CreativeUnit(Long creativeId, Long unitId) {
         this.creativeId = creativeId;
         this.unitId = unitId;
     }

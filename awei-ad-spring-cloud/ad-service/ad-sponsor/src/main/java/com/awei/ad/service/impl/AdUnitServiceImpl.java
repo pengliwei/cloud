@@ -91,14 +91,14 @@ public class AdUnitServiceImpl implements IAdUnitService {
     public AdUnitKeywordResponse createUnitKeyword(
             AdUnitKeywordRequest request) throws AdException {
 
-        List<String> unitIds = request.getUnitKeywords().stream()
+        List<Long> unitIds = request.getUnitKeywords().stream()
                 .map(AdUnitKeywordRequest.UnitKeyword::getUnitId)
                 .collect(Collectors.toList());
         if (!isRelatedUnitExist(unitIds)) {
             throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
 
-        List<String> ids = Collections.emptyList();
+        List<Long> ids = Collections.emptyList();
 
         List<AdUnitKeyword> unitKeywords = new ArrayList<>();
         if (!CollectionUtils.isEmpty(request.getUnitKeywords())) {
@@ -118,7 +118,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
     public AdUnitItResponse createUnitIt(
             AdUnitItRequest request) throws AdException {
 
-        List<String> unitIds = request.getUnitIts().stream()
+        List<Long> unitIds = request.getUnitIts().stream()
                 .map(AdUnitItRequest.UnitIt::getUnitId)
                 .collect(Collectors.toList());
         if (!isRelatedUnitExist(unitIds)) {
@@ -129,7 +129,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
         request.getUnitIts().forEach(i -> unitIts.add(
                 new AdUnitIt(i.getUnitId(), i.getItTag())
         ));
-        List<String> ids = unitItRepository.saveAll(unitIts).stream()
+        List<Long> ids = unitItRepository.saveAll(unitIts).stream()
                 .map(AdUnitIt::getId)
                 .collect(Collectors.toList());
 
@@ -140,7 +140,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
     public AdUnitDistrictResponse createUnitDistrict(
             AdUnitDistrictRequest request) throws AdException {
 
-        List<String> unitIds = request.getUnitDistricts().stream()
+        List<Long> unitIds = request.getUnitDistricts().stream()
                 .map(AdUnitDistrictRequest.UnitDistrict::getUnitId)
                 .collect(Collectors.toList());
         if (!isRelatedUnitExist(unitIds)) {
@@ -152,7 +152,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
                 new AdUnitDistrict(d.getUnitId(), d.getProvince(),
                         d.getCity())
         ));
-        List<String> ids = unitDistrictRepository.saveAll(unitDistricts)
+        List<Long> ids = unitDistrictRepository.saveAll(unitDistricts)
                 .stream().map(AdUnitDistrict::getId)
                 .collect(Collectors.toList());
 
@@ -163,10 +163,10 @@ public class AdUnitServiceImpl implements IAdUnitService {
     public CreativeUnitResponse createCreativeUnit(
             CreativeUnitRequest request) throws AdException {
 
-        List<String> unitIds = request.getUnitItems().stream()
+        List<Long> unitIds = request.getUnitItems().stream()
                 .map(CreativeUnitRequest.CreativeUnitItem::getUnitId)
                 .collect(Collectors.toList());
-        List<String> creativeIds = request.getUnitItems().stream()
+        List<Long> creativeIds = request.getUnitItems().stream()
                 .map(CreativeUnitRequest.CreativeUnitItem::getCreativeId)
                 .collect(Collectors.toList());
 
@@ -179,7 +179,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
                 new CreativeUnit(i.getCreativeId(), i.getUnitId())
         ));
 
-        List<String> ids = creativeUnitRepository.saveAll(creativeUnits)
+        List<Long> ids = creativeUnitRepository.saveAll(creativeUnits)
                 .stream()
                 .map(CreativeUnit::getId)
                 .collect(Collectors.toList());
@@ -187,7 +187,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
         return new CreativeUnitResponse(ids);
     }
 
-    private boolean isRelatedUnitExist(List<String> unitIds) {
+    private boolean isRelatedUnitExist(List<Long> unitIds) {
 
         if (CollectionUtils.isEmpty(unitIds)) {
             return false;
@@ -197,7 +197,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
                 new HashSet<>(unitIds).size();
     }
 
-    private boolean isRelatedCreativeExist(List<String> creativeIds) {
+    private boolean isRelatedCreativeExist(List<Long> creativeIds) {
 
         if (CollectionUtils.isEmpty(creativeIds)) {
             return false;

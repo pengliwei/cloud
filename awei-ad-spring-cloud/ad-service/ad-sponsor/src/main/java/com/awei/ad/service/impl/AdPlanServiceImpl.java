@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,7 +87,7 @@ public class AdPlanServiceImpl implements IAdPlanService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = {AdException.class})
     public AdPlanResponse updateAdPlan(AdPlanRequest request)
             throws AdException {
 
@@ -115,7 +116,7 @@ public class AdPlanServiceImpl implements IAdPlanService {
             );
         }
 
-        plan.setUpdateTime(String.valueOf(System.currentTimeMillis()));
+        plan.setUpdateTime(new Date());
         plan = planRepository.save(plan);
 
         return new AdPlanResponse(plan.getId(), plan.getPlanName());
@@ -137,7 +138,7 @@ public class AdPlanServiceImpl implements IAdPlanService {
         }
 
         plan.setPlanStatus(CommonStatus.INVALID.getStatus());
-        plan.setUpdateTime(String.valueOf(System.currentTimeMillis()));
+        plan.setUpdateTime(new Date());
         planRepository.save(plan);
     }
 }

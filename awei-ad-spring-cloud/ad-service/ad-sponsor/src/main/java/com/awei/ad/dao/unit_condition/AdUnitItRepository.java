@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @date: 2020/10/28
  */
 public interface AdUnitItRepository
-        extends JpaRepository<AdUnitIt, String> {
+        extends JpaRepository<AdUnitIt, Long> {
 }

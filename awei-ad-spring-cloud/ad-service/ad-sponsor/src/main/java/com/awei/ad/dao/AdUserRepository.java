@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author: PENGLW
  * @date: 2020/10/28
  */
-public interface AdUserRepository extends JpaRepository<AdUser, String> {
+public interface AdUserRepository extends JpaRepository<AdUser, Long> {
 
     /**
      * 根据用户名查找用户记录

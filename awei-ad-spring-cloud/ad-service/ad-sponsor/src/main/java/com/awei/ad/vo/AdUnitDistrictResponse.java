@@ -16,5 +16,5 @@ import java.util.List;
 @AllArgsConstructor
 public class AdUnitDistrictResponse {
 
-    private List<String> ids;
+    private List<Long> ids;
 }

@@ -23,7 +23,7 @@ public class AdUnitKeywordRequest {
     @AllArgsConstructor
     public static class UnitKeyword {
 
-        private String unitId;
+        private Long unitId;
         private String keyword;
     }
 }
