@@ -16,9 +16,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class AdPlan {
 
-    private String id;
+    private Long id;
 
-    private String userId;
+    private Long userId;
 
     private String planName;
 
@@ -28,7 +28,7 @@ public class AdPlan {
 
     private Date endDate;
 
-    private String createTime;
+    private Date createTime;
 
-    private String updateTime;
+    private Date updateTime;
 }
