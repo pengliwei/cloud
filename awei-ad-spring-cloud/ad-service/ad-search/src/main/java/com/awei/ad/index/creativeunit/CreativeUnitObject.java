@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by Qinyi.
+ * @description: 创意单元对象
+ * @author: PENGLW
+ * @date: 2020/11/6
  */
 @Data
 @NoArgsConstructor
@@ -15,5 +17,4 @@ public class CreativeUnitObject {
     private Long adId;
     private Long unitId;
 
-    // adId-unitId
 }

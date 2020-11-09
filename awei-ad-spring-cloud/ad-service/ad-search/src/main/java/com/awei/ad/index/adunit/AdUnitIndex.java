@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @description:
+ * @description: 推广单元实现类
  * @author: PENGLW
  * @date: 2020/11/6
  */

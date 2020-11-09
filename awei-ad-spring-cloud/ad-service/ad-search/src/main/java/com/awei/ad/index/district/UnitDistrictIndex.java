@@ -12,7 +12,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
- * Created by Qinyi.
+ * @description: 单元区域实现类
+ * @author: PENGLW
+ * @date: 2020/11/6
  */
 @Slf4j
 @Component

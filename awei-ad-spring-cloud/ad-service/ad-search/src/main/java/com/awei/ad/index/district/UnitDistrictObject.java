@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by Qinyi.
+ * @description: 单元区域对象
+ * @author: PENGLW
+ * @date: 2020/11/6
  */
 @Data
 @NoArgsConstructor
