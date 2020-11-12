@@ -2,14 +2,18 @@ package com.awei.ad.index.district;
 
 
 import com.awei.ad.index.IndexAware;
+import com.awei.ad.search.vo.feature.DistrictFeature;
 import com.awei.ad.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.stream.Collectors;
 
 /**
  * @description: 单元区域实现类
@@ -83,5 +87,26 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
         }
 
         log.info("UnitDistrictIndex, after delete: {}", unitDistrictMap);
+    }
+
+    public boolean match(Long adUnitId,
+                         List<DistrictFeature.ProvinceAndCity> districts) {
+
+        if (unitDistrictMap.containsKey(adUnitId) &&
+                CollectionUtils.isNotEmpty(unitDistrictMap.get(adUnitId))) {
+
+            Set<String> unitDistricts = unitDistrictMap.get(adUnitId);
+
+            List<String> targetDistricts = districts.stream()
+                    .map(
+                            d -> CommonUtils.stringConcat(
+                                    d.getProvince(), d.getCity()
+                            )
+                    ).collect(Collectors.toList());
+
+            return CollectionUtils.isSubCollection(targetDistricts, unitDistricts);
+        }
+
+        return false;
     }
 }
