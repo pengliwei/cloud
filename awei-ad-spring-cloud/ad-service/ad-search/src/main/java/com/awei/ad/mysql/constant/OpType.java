@@ -3,7 +3,7 @@ package com.awei.ad.mysql.constant;
 import com.github.shyiko.mysql.binlog.event.EventType;
 
 /**
- * @description:
+ * @description: 数据库操作类型枚举
  * @author: PENGLW
  * @date: 2020/11/5
  */
@@ -14,7 +14,8 @@ public enum OpType {
     DELETE,
     OTHER;
 
-    public static OpType to(EventType eventType){
+    public static OpType to(EventType eventType) {
+
         switch (eventType) {
             case EXT_WRITE_ROWS:
                 return ADD;
@@ -22,7 +23,6 @@ public enum OpType {
                 return UPDATE;
             case EXT_DELETE_ROWS:
                 return DELETE;
-
             default:
                 return OTHER;
         }

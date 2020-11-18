@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @description:推广计划实现类
+ * @description: 数据库表解析类
  * @author: PENGLW
  * @date: 2020/11/5
  */
 public class Constant {
 
-    private static final String DB_NAME = "imooc_ad_data";
+    private static final String DB_NAME = "ad_data";
 
     public static class AD_PLAN_TABLE_INFO {
 

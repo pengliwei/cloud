@@ -35,11 +35,15 @@ public class CommonUtils {
         return result.toString();
     }
 
-    // Tue Jan 01 08:00:00 CST 2019
+    /**
+     * 解析日期格式，并在时间上减少8小时，binlog输出日期多了8小时
+     * @param dateString
+     * @return
+     */
     public static Date parseStringDate(String dateString) {
 
         try {
-
+            // Tue Jan 01 08:00:00 CST 2019
             DateFormat dateFormat = new SimpleDateFormat(
                     "EEE MMM dd HH:mm:ss zzz yyyy",
                     Locale.US
