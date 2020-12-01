@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @description:
+ * @description: 设备信息
  * @author: PENGLW
  * @date: 2020/11/12
  */

@@ -29,6 +29,11 @@ public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
         objectMap = new ConcurrentHashMap<>();
     }
 
+    /**
+     * 匹配流量类型，返回推广单元
+     * @param positionType
+     * @return
+     */
     public Set<Long> match(Integer positionType) {
 
         Set<Long> adUnitIds = new HashSet<>();
@@ -43,6 +48,11 @@ public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
         return adUnitIds;
     }
 
+    /**
+     * 根据推广单位获取索引对象
+     * @param adUnitIds
+     * @return
+     */
     public List<AdUnitObject> fetch(Collection<Long> adUnitIds) {
 
         if (CollectionUtils.isEmpty(adUnitIds)) {

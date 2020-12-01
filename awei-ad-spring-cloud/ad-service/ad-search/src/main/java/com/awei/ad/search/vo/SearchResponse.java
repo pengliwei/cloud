@@ -20,7 +20,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class SearchResponse {
 
-    public Map<String, List<Creative>> adSlot2Ads = new HashMap<>();
+    public Map<String, List<Creative>> adSlotToAds = new HashMap<>();
 
     @Data
     @NoArgsConstructor
@@ -36,10 +36,10 @@ public class SearchResponse {
 
         // 展示监测 url
         private List<String> showMonitorUrl =
-                Arrays.asList("www.imooc.com", "www.imooc.com");
+                Arrays.asList("www.awei.com", "www.awei.com");
         // 点击监测 url
         private List<String> clickMonitorUrl =
-                Arrays.asList("www.imooc.com", "www.imooc.com");
+                Arrays.asList("www.awei.com", "www.awei.com");
     }
 
     public static Creative convert(CreativeObject object) {

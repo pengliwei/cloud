@@ -1,7 +1,7 @@
 package com.awei.ad.search.vo.feature;
 
 /**
- * @description:
+ * @description: 匹配规则
  * @author: PENGLW
  * @date: 2020/11/12
  */

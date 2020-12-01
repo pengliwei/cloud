@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * @description:
+ * @description: 广告位信息
  * @author: PENGLW
  * @date: 2020/11/12
  */

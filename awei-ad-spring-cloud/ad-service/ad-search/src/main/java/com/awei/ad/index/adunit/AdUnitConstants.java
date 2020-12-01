@@ -1,7 +1,7 @@
 package com.awei.ad.index.adunit;
 
 /**
- * @description:
+ * @description: 推广单元流量类型
  * @author: PENGLW
  * @date: 2020/11/6
  */

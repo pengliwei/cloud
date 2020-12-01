@@ -50,5 +50,5 @@ adconf:
     #binlog文件监听位置
     position: -1
 
-#  kafka:
-#    topic: ad-search-mysql-data
+  kafka:
+    topic: ad-search-mysql-data

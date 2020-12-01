@@ -11,5 +11,11 @@ import com.awei.ad.search.vo.SearchResponse;
  */
 public interface ISearch {
 
+    /**
+     * 广告匹配
+     *
+     * @param request
+     * @return
+     */
     SearchResponse fetchAds(SearchRequest request);
 }

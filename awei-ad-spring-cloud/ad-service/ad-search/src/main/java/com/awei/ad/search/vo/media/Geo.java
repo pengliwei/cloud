@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @description:
+ * @description: 地理位置信息
  * @author: PENGLW
  * @date: 2020/11/12
  */
@@ -14,6 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Geo {
 
+    /**
+     * 纬度和经度
+     */
     private Float latitude;
     private Float longitude;
 
