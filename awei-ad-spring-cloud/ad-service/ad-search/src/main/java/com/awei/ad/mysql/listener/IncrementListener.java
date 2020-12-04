@@ -26,7 +26,7 @@ import java.util.Map;
 @Component
 public class IncrementListener implements IListener{
 
-    @Resource(name = "")
+    @Resource(name = "kafkaSender")
     private ISender sender;
 
     private final AggregationListener aggregationListener;

@@ -40,7 +40,7 @@ public class SearchImpl implements ISearch {
     }
 
     /**
-     * HystrixCommand ：发生错误时回退方法
+     * HystrixCommand ：发生错误时回退方法，原理：通过try，catch，finally形式，反射调用fallbackMethod方法
      * @param request
      * @return
      */

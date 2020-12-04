@@ -46,7 +46,9 @@ public class AdPlanOPController {
             @RequestBody AdPlanGetRequest request) throws AdException {
         log.info("ad-sponsor: getAdPlanByIds -> {}",
                 JSON.toJSONString(request));
-        return adPlanService.getAdPlanByIds(request);
+        List<AdPlan> adPlanByIds = adPlanService.getAdPlanByIds(request);
+        log.info("response -> {}",JSON.toJSONString(adPlanByIds));
+        return adPlanByIds;
     }
 
     @PutMapping("/update/adPlan")

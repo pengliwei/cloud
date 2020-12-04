@@ -35,9 +35,9 @@ public class AggregationListener implements BinaryLogClient.EventListener {
         this.templateHolder = templateHolder;
     }
 
-    public void register(String dbName ,String tableName, IListener iListener){
-        log.info("register：表注册：",dbName,tableName);
-        this.listenerMap.put(getKey(dbName,tableName),iListener);
+    public void register(String _dbName ,String _tableName, IListener iListener){
+        log.info("register : {}-{}",_dbName,_tableName);
+        this.listenerMap.put(getKey(_dbName,_tableName),iListener);
 
     }
 

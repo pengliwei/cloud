@@ -21,10 +21,6 @@ spring:
       max-active: 4
       min-idle: 2
       initial-size: 2
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
-    listener:
-      concurrency: 4
 
 eureka:
   client:
@@ -48,7 +44,7 @@ adconf:
     port: 3306
     username: root
     password: 123456
-    binlogName:
+    binlogName: ""
     position: -1
 
   kafka:

@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Collections;
 
 /**
- * @description: 推广计划
+ * @description: 推广计划测试用例
  * @author: PENGLW
  * @date: 2020/11/9
  */
